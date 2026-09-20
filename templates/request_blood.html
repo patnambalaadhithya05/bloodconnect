@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+Request Blood | BloodConnect
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="form-container wide">
+
+
+    <span class="eyebrow">
+        BLOOD REQUEST
+    </span>
+
+
+    <h1>
+        Request blood
+    </h1>
+
+
+    <p>
+        Provide the required information.
+    </p>
+
+
+    <form
+        method="POST"
+        class="form"
+    >
+
+        {% csrf_token %}
+
+
+        {{ form.as_p }}
+
+
+        <button
+            type="submit"
+            class="btn full"
+        >
+            Submit Blood Request
+        </button>
+
+
+    </form>
+
+
+</section>
+
+
+{% endblock %}
