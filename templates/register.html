@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+Create Account | BloodConnect
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="form-container">
+
+
+    <div class="form-header">
+
+        <span class="eyebrow">
+            JOIN BLOODCONNECT
+        </span>
+
+
+        <h1>
+            Create your account
+        </h1>
+
+
+        <p>
+            Join the donor community.
+        </p>
+
+    </div>
+
+
+    <form
+        method="POST"
+        class="form"
+    >
+
+        {% csrf_token %}
+
+
+        {{ form.as_p }}
+
+
+        <button
+            type="submit"
+            class="btn full"
+        >
+            Create Account
+        </button>
+
+
+    </form>
+
+
+    <p class="form-footer">
+
+        Already have an account?
+
+        <a href="/login/">
+            Login
+        </a>
+
+    </p>
+
+
+</section>
+
+
+{% endblock %}
