@@ -1,0 +1,253 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+BloodConnect | Find Blood
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="hero">
+
+
+    <div class="hero-content">
+
+        <span class="eyebrow">
+            COMMUNITY BLOOD NETWORK
+        </span>
+
+
+        <h1>
+
+            Find blood.
+
+            <br>
+
+            <span>
+                Connect faster.
+            </span>
+
+        </h1>
+
+
+        <p>
+
+            BloodConnect helps people discover
+            available voluntary donors and create
+            blood requests through a simple,
+            modern platform.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="/donors/"
+                class="btn"
+            >
+                🩸 Find Blood
+            </a>
+
+
+            <a
+                href="/register/"
+                class="btn secondary"
+            >
+                ❤️ Become a Donor
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-card">
+
+        <div class="heart">
+
+            ❤
+
+        </div>
+
+
+        <h2>
+            One connection can matter.
+        </h2>
+
+
+        <p>
+
+            Search for available donors
+            based on blood group and city.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<section class="statistics">
+
+
+    <div>
+
+        <strong>
+            {{ donor_count }}
+        </strong>
+
+        <span>
+            Available Donors
+        </span>
+
+    </div>
+
+
+    <div>
+
+        <strong>
+            {{ request_count }}
+        </strong>
+
+        <span>
+            Open Requests
+        </span>
+
+    </div>
+
+
+    <div>
+
+        <strong>
+            24/7
+        </strong>
+
+        <span>
+            Community Access
+        </span>
+
+    </div>
+
+
+</section>
+
+
+
+<section class="section">
+
+
+    <span class="eyebrow">
+        HOW IT WORKS
+    </span>
+
+
+    <h2>
+        Simple. Clear. Human.
+    </h2>
+
+
+    <div class="feature-grid">
+
+
+        <article>
+
+            <span class="number">
+                01
+            </span>
+
+            <h3>
+                Search
+            </h3>
+
+            <p>
+                Select the required blood group
+                and location.
+            </p>
+
+        </article>
+
+
+        <article>
+
+            <span class="number">
+                02
+            </span>
+
+            <h3>
+                Connect
+            </h3>
+
+            <p>
+                Find available donors and
+                contact them responsibly.
+            </p>
+
+        </article>
+
+
+        <article>
+
+            <span class="number">
+                03
+            </span>
+
+            <h3>
+                Donate
+            </h3>
+
+            <p>
+                Coordinate with the hospital
+                or blood bank.
+            </p>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<section class="emergency-section">
+
+
+    <div>
+
+        <span class="eyebrow">
+            NEED BLOOD URGENTLY?
+        </span>
+
+
+        <h2>
+            Create an emergency request.
+        </h2>
+
+
+        <p>
+            Submit the required information
+            and start connecting with the
+            donor community.
+        </p>
+
+    </div>
+
+
+    <a
+        href="/emergency/"
+        class="btn emergency-button"
+    >
+        🚨 Emergency Request
+    </a>
+
+
+</section>
+
+
+{% endblock %}
