@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+Find Donors | BloodConnect
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="section">
+
+
+    <span class="eyebrow">
+        DONOR DIRECTORY
+    </span>
+
+
+    <h1>
+        Find an available donor
+    </h1>
+
+
+    <p>
+        Search using blood group and city.
+    </p>
+
+
+    <form
+        method="GET"
+        class="search-box"
+    >
+
+
+        <select name="blood_group">
+
+            <option value="">
+                Any Blood Group
+            </option>
+
+
+            {% for group in blood_groups %}
+
+                <option
+                    value="{{ group }}"
+                    {% if group == bg %}
+                    selected
+                    {% endif %}
+                >
+
+                    {{ group }}
+
+                </option>
+
+            {% endfor %}
+
+        </select>
+
+
+        <input
+            type="text"
+            name="city"
+            placeholder="Enter city"
+            value="{{ city }}"
+        >
+
+
+        <button
+            type="submit"
+            class="btn"
+        >
+            Search
+        </button>
+
+
+    </form>
+
+
+
+    <div class="donor-grid">
+
+
+        {% for donor in donors %}
+
+
+        <article class="donor-card">
+
+
+            <span class="available">
+                ● Available
+            </span>
+
+
+            <div class="donor-top">
+
+                <div class="avatar">
+                    {{ donor.user.first_name|first|upper }}
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        {{ donor.user.get_full_name|default:donor.user.username }}
+                    </h3>
+
+                    <p>
+                        📍 {{ donor.city }},
+                        {{ donor.state }}
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="blood-type">
+
+                {{ donor.blood_group }}
+
+            </div>
+
+
+            <p>
+                🩸 {{ donor.donations }}
+                recorded donations
+            </p>
+
+
+            {% if donor.phone %}
+
+            <a
+                href="tel:{{ donor.phone }}"
+                class="btn small"
+            >
+                📞 Contact Donor
+            </a>
+
+            {% endif %}
+
+
+        </article>
+
+
+        {% empty %}
+
+
+        <div class="empty">
+
+            <h3>
+                No donors found
+            </h3>
+
+            <p>
+                Try another blood group
+                or city.
+            </p>
+
+        </div>
+
+
+        {% endfor %}
+
+
+    </div>
+
+</section>
+
+
+{% endblock %}
