@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+Login | BloodConnect
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="form-container">
+
+
+    <div class="form-header">
+
+        <span class="eyebrow">
+            WELCOME BACK
+        </span>
+
+
+        <h1>
+            Login
+        </h1>
+
+
+        <p>
+            Access your BloodConnect account.
+        </p>
+
+    </div>
+
+
+    <form
+        method="POST"
+        class="form"
+    >
+
+        {% csrf_token %}
+
+
+        <label>
+
+            Username
+
+            <input
+                type="text"
+                name="username"
+                required
+            >
+
+        </label>
+
+
+        <label>
+
+            Password
+
+            <input
+                type="password"
+                name="password"
+                required
+            >
+
+        </label>
+
+
+        <button
+            type="submit"
+            class="btn full"
+        >
+            Login
+        </button>
+
+
+    </form>
+
+
+    <p class="form-footer">
+
+        Don't have an account?
+
+        <a href="/register/">
+            Create one
+        </a>
+
+    </p>
+
+
+</section>
+
+
+{% endblock %}
