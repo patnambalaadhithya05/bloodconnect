@@ -1,0 +1,137 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {% block title %}
+        BloodConnect
+        {% endblock %}
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'css/style.css' %}"
+    >
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+    <a
+        href="/"
+        class="logo"
+    >
+        🩸 BloodConnect
+    </a>
+
+
+    <nav>
+
+        <a href="/donors/">
+            Find Blood
+        </a>
+
+
+        <a href="/emergency/">
+            Emergency
+        </a>
+
+
+        {% if user.is_authenticated %}
+
+            <a href="/dashboard/">
+                Dashboard
+            </a>
+
+            <a href="/logout/">
+                Logout
+            </a>
+
+        {% else %}
+
+            <a href="/login/">
+                Login
+            </a>
+
+
+            <a
+                href="/register/"
+                class="nav-button"
+            >
+                Become a Donor
+            </a>
+
+        {% endif %}
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    {% for message in messages %}
+
+        <div class="alert">
+
+            {{ message }}
+
+        </div>
+
+    {% endfor %}
+
+
+    {% block content %}
+
+    {% endblock %}
+
+</main>
+
+
+<footer>
+
+    <div>
+
+        <h3>
+            🩸 BloodConnect
+        </h3>
+
+        <p>
+            Connecting voluntary blood donors
+            with people seeking blood.
+        </p>
+
+    </div>
+
+
+    <div>
+
+        <p>
+            © 2026 BloodConnect
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
