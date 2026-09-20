@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+Dashboard | BloodConnect
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="section">
+
+
+    <span class="eyebrow">
+        YOUR DASHBOARD
+    </span>
+
+
+    <h1>
+        Hello,
+        {{ user.first_name|default:user.username }}
+        👋
+    </h1>
+
+
+    <div class="dashboard-grid">
+
+
+        <div class="panel">
+
+
+            <h2>
+                Donor Profile
+            </h2>
+
+
+            <p>
+                Keep your availability
+                information updated.
+            </p>
+
+
+            <form
+                method="POST"
+                class="form"
+            >
+
+                {% csrf_token %}
+
+
+                {{ form.as_p }}
+
+
+                <button
+                    type="submit"
+                    class="btn"
+                >
+                    Save Profile
+                </button>
+
+            </form>
+
+
+        </div>
+
+
+
+        <div class="panel">
+
+
+            <h2>
+                Quick Actions
+            </h2>
+
+
+            <a
+                href="/request-blood/"
+                class="btn full"
+            >
+                🩸 Request Blood
+            </a>
+
+
+            <a
+                href="/emergency/"
+                class="btn emergency-button full"
+            >
+                🚨 Emergency Request
+            </a>
+
+
+            <h3>
+                Recent Requests
+            </h3>
+
+
+            {% for request in requests %}
+
+                <div class="request-item">
+
+                    <strong>
+                        {{ request.blood_group }}
+                    </strong>
+
+
+                    <span>
+                        {{ request.hospital }}
+                    </span>
+
+
+                    <small>
+                        {{ request.status }}
+                    </small>
+
+                </div>
+
+            {% empty %}
+
+                <p>
+                    You have not created
+                    any requests yet.
+                </p>
+
+            {% endfor %}
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+{% endblock %}
