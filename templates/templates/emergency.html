@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+Emergency Request | BloodConnect
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="form-container wide emergency-form">
+
+
+    <span class="eyebrow">
+        🚨 URGENT REQUEST
+    </span>
+
+
+    <h1>
+        Emergency Blood Request
+    </h1>
+
+
+    <p>
+
+        For an active medical emergency,
+        contact the treating hospital,
+        blood bank, or emergency services
+        directly as appropriate.
+
+    </p>
+
+
+    <form
+        method="POST"
+        class="form"
+    >
+
+        {% csrf_token %}
+
+
+        {{ form.as_p }}
+
+
+        <button
+            type="submit"
+            class="btn emergency-button full"
+        >
+            🚨 Create Emergency Request
+        </button>
+
+
+    </form>
+
+
+</section>
+
+
+{% endblock %}
