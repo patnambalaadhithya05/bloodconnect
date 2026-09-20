@@ -1,0 +1,28 @@
+{
+    "name": "BloodConnect",
+
+    "dockerComposeFile": "../docker-compose.yml",
+
+    "service": "web",
+
+    "workspaceFolder": "/app",
+
+    "forwardPorts": [
+        8000,
+        5432
+    ],
+
+    "customizations": {
+
+        "vscode": {
+
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "batisteo.vscode-django"
+            ]
+
+        }
+
+    }
+}
